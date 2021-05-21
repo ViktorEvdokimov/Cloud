@@ -34,6 +34,7 @@ public class Server {
             new String[]{"ls", " - print files list;\n"},
             new String[]{"cat", " \"file_name\" - show data from file;\n"}
     };
+    private final String path = "Nio\\src\\main";
 
     public Server() throws IOException {
         buffer = ByteBuffer.allocate(256);
@@ -94,8 +95,13 @@ public class Server {
                     }
                 }else if (message.contains(commands[1][0])){
                     SocketChannel ch = (SocketChannel) selectionKey.channel();
-                    ch.write(ByteBuffer.wrap(FileHandler.getFileList(Paths.get("Nio\\src\\main")).getBytes()));
-                } else {
+                    ch.write(ByteBuffer.wrap(FileHandler.getFileList(path).getBytes()));
+                } else if (message.contains(commands[2][0])){
+                    String[] parts = message.split(" ");
+                    String[] fileName = parts[1].split("\r");
+                    SocketChannel ch = (SocketChannel) selectionKey.channel();
+                    ch.write(ByteBuffer.wrap((FileHandler.fileToString(fileName[0], path)).getBytes()));
+                }else {
                     log.debug("received from {} msg: {}", attachment, message);
                     String date = formatter.format(LocalDateTime.now());
                     for (SelectionKey key : selector.keys()) {
