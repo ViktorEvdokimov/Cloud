@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -28,6 +29,11 @@ public class Server {
     private final Selector selector;
     private final DateTimeFormatter formatter;
     private static final Logger log = LoggerFactory.getLogger(Server.class);
+    private static final String[][] commands = new String[][] {
+            new String[]{"help", " - print commands list;\n"},
+            new String[]{"ls", " - print files list;\n"},
+            new String[]{"cat", " \"file_name\" - show data from file;\n"}
+    };
 
     public Server() throws IOException {
         buffer = ByteBuffer.allocate(256);
@@ -81,7 +87,12 @@ public class Server {
 
                 String message = reader.toString();
                 System.out.println(message);
-                if (message.contains("ls")){
+                if (message.contains(commands[0][0])){
+                    SocketChannel ch = (SocketChannel) selectionKey.channel();
+                    for (int i = 0; i < commands.length; i++) {
+                        ch.write(ByteBuffer.wrap((commands[i][0] + commands[i][1]).getBytes()));
+                    }
+                }else if (message.contains(commands[1][0])){
                     SocketChannel ch = (SocketChannel) selectionKey.channel();
                     ch.write(ByteBuffer.wrap(FileHandler.getFileList(Paths.get("Nio\\src\\main")).getBytes()));
                 } else {
