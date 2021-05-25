@@ -6,6 +6,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Cloud.iml" filepath="$PROJECT_DIR$/.idea/Cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/Nio/Nio.iml" filepath="$PROJECT_DIR$/Nio/Nio.iml" />
       <module fileurl="file://$PROJECT_DIR$/Server/Server.iml" filepath="$PROJECT_DIR$/Server/Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nettyServer/nettyServer.iml" filepath="$PROJECT_DIR$/nettyServer/nettyServer.iml" />
     </modules>
   </component>
 </project>

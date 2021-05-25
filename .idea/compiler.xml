@@ -8,11 +8,15 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Client" />
         <module name="Server" />
+        <module name="common" />
         <module name="Nio" />
+        <module name="nettyServer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Client" target="8" />
+      <module name="common" target="1.5" />
+      <module name="nettyServer" target="8" />
       <module name="Nio" target="8" />
       <module name="Server" target="7" />
     </bytecodeTargetLevel>
