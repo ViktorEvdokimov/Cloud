@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="345.0" prefWidth="260.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientController">
+    <Button fx:id="sendButton" layoutX="196.0" layoutY="306.0" mnemonicParsing="false" onAction="#sendToServer" text="Send" />
+    <ListView fx:id="serverResponse" layoutX="14.0" layoutY="306.0" prefHeight="25.0" prefWidth="170.0" />
+    <ListView fx:id="fileList" onMouseClicked="#mouseClicked" onKeyPressed="#keyPressed" layoutX="14.0" layoutY="14.0" prefHeight="284.0" prefWidth="231.0" />
+
+</AnchorPane>
