@@ -13,10 +13,10 @@
         <module name="nettyServer" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="Client" target="8" />
       <module name="common" target="1.5" />
-      <module name="nettyServer" target="8" />
+      <module name="nettyServer" target="1.8" />
       <module name="Nio" target="8" />
       <module name="Server" target="7" />
     </bytecodeTargetLevel>
