@@ -6,7 +6,11 @@
 
     <groupId>Cloud</groupId>
     <artifactId>common</artifactId>
+    <packaging>pom</packaging>
     <version>1</version>
+    <modules>
+        <module>nettyClient</module>
+    </modules>
 
     <dependencies>
         <dependency>

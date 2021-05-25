@@ -35,7 +35,7 @@ public class Server {
                             channel.pipeline().addLast(
                                     new ObjectDecoder(ClassResolvers.cacheDisabled(null)),
                                     new ObjectEncoder(),
-                                    new MessageHandler()
+                                    new FileHandler()
                             );
                         }
                     });
